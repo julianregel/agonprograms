@@ -44,7 +44,7 @@ Additionally, beyond VGA, I have had success with the following:
 |---|---|---|---|
 | 16 | 800x600 in 4 colours at 60Hz | SVGA_800x600_60Hz |
 | 17 | 800x600 in 2 colours at 60Hz | SVGA_800x600_60Hz |
-| 18 | 1024x768 in 2 colours at 60Hz | SVGA_1024x768_60Hz | VDP 1.03 Mode 0
+| 18 | 1024x768 in 2 colours at 60Hz | SVGA_1024x768_60Hz | VDP 1.03 Mode 0 |
 
 
 ## Additional modes requested for testing
@@ -64,3 +64,19 @@ The 640x512 resolution was requested as it would be a scaled down mode that shou
 | 21 | 512x384 in 2 colours at 60Hz | VGA_512x384_60Hz |
 | 22 | 320x200 in 64 colours at 75Hz | VGA_320x200_75Hz |  VDP 1.03 Mode 2 |
 | 23 | 640x512 in 16 colours at 60Hz | QSVGA_640x512_60Hz | 
+
+
+# Legacy Modes Support
+
+In order to maintain compatability with programs that are designed for the modes in VDP 1.03, I have added the following:
+
+## VDU 23,0,193,n
+
+This VDU command will set the VDP to support the experimental modes listed above, or the original four modes defined in VDP 1.03. The options are:
+
+- VDU 23,0,193,0 = Use "new" screen mode definitions (the default)
+- VDU 23,0,193,1 = Use legacy screen modes as defined in VDP 1.03
+
+This additional functionality requires updating both the video.ino and agon.h files.
+
+Please note, running the MODE command after running the VDU command will only take effect if you are changing to a different screen mode. For example, if you are in mode 0, make the VDU change and then try and set mode 0 again, it will not recognise the new mode. You must change to a different mode first.
