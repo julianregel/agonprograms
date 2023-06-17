@@ -43,6 +43,9 @@
 #define REVISION		3
 #define RC				0
 
+#define VGA_320x200_60Hz "\"320x200@60Hz\" 12.5875 320 328 376 400 200 226 227 262 -HSync -VSync DoubleScan"
+#define QSVGA_640x512_60Hz "\"640x512@60Hz\" 54 640 664 720 844 512 513 515 533 -HSync -VSync DoubleScan"
+
 #define	DEBUG			0						// Serial Debug Mode: 1 = enable
 #define SERIALKB		0						// Serial Keyboard: 1 = enable (Experimental)
 
@@ -618,7 +621,7 @@ int change_mode(int mode) {
 	if(mode != videoMode) {
 		switch(mode) {
 			case 0:
-				errVal = change_resolution(16, VGA_640x480_60Hz);
+				errVal = change_resolution(16, VGA_640x480_60Hz);		// VDP 1.03 Mode 3, VGA Mode 12h
 				break;
 			case 1:
 				errVal = change_resolution(4, VGA_640x480_60Hz);
@@ -639,10 +642,10 @@ int change_mode(int mode) {
 				errVal = change_resolution(2, VGA_640x240_60Hz);
 				break;
 			case 7:
-				errVal = change_resolution(16, VGA_320x200_60Hz);
+				errVal = change_resolution(16, VGA_320x200_70Hz);		// Placeholder for teletext Mode 7
 				break;
 			case 8:
-				errVal = change_resolution(64, QVGA_320x240_60Hz);
+				errVal = change_resolution(64, QVGA_320x240_60Hz);		// VGA "Mode X"
 				break;
 			case 9:
 				errVal = change_resolution(16, QVGA_320x240_60Hz);
@@ -654,7 +657,7 @@ int change_mode(int mode) {
 				errVal = change_resolution(2, QVGA_320x240_60Hz);
 				break;
 			case 12:
-				errVal = change_resolution(64, VGA_320x200_70Hz);
+				errVal = change_resolution(64, VGA_320x200_70Hz);		// VGA Mode 13h
 				break;
 			case 13:
 				errVal = change_resolution(16, VGA_320x200_70Hz);
@@ -672,7 +675,22 @@ int change_mode(int mode) {
 				errVal = change_resolution(2, SVGA_800x600_60Hz);
 				break;
 			case 18:
-				errVal = change_resolution(2, SVGA_1024x768_60Hz);
+				errVal = change_resolution(2, SVGA_1024x768_60Hz);		// VDP 1.03 Mode 0
+				break;
+			case 19:
+				errVal = change_resolution(16, VGA_512x384_60Hz);		// VDP 1.03 Mode 1
+				break;
+			case 20:
+				errVal = change_resolution(4, VGA_512x384_60Hz);
+				break;
+			case 21:
+				errVal = change_resolution(2, VGA_512x384_60Hz);
+				break;
+			case 22:
+				errVal = change_resolution(64, VGA_320x200_75Hz);		// VDP 1.03 Mode 2
+				break;
+			case 23:
+				errVal = change_resolution(16, QSVGA_640x512_60Hz);
 				break;
 		}
 		if(errVal != 0) {
