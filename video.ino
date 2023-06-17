@@ -78,6 +78,7 @@ bool		cursorEnabled = true;				// Cursor visibility
 bool		logicalCoords = true;				// Use BBC BASIC logical coordinates
 double		logicalScaleX;						// Scaling factor for logical coordinates
 double		logicalScaleY;
+bool		legacyModes = false;				// Default legacy modes being false
 int         count = 0;							// Generic counter, incremented every iteration of loop
 uint8_t		numsprites = 0;						// Number of sprites on stage
 uint8_t 	current_sprite = 0; 				// Current sprite number
@@ -620,17 +621,37 @@ int change_mode(int mode) {
 	cls();
 	if(mode != videoMode) {
 		switch(mode) {
-			case 0:
-				errVal = change_resolution(16, VGA_640x480_60Hz);		// VDP 1.03 Mode 3, VGA Mode 12h
+			case 0:{
+					if (legacyModes == true) {
+						errVal = change_resolution(2, SVGA_1024x768_60Hz);
+					} else {
+						errVal = change_resolution(16, VGA_640x480_60Hz);	// VDP 1.03 Mode 3, VGA Mode 12h
+					}
+				}
 				break;
-			case 1:
-				errVal = change_resolution(4, VGA_640x480_60Hz);
+			case 1:{
+					if (legacyModes == true) {
+						errVal = change_resolution(16, VGA_512x384_60Hz);
+					} else {
+						errVal = change_resolution(4, VGA_640x480_60Hz);
+					}
+				}
 				break;
-			case 2:
-				errVal = change_resolution(2, VGA_640x480_60Hz);
+			case 2:{
+					if (legacyModes == true) {
+						errVal = change_resolution(64, VGA_320x200_75Hz);
+					} else {
+						errVal = change_resolution(2, VGA_640x480_60Hz);
+					}
+				}
 				break;
-			case 3:
-				errVal = change_resolution(64, VGA_640x240_60Hz);
+			case 3: {
+					if (legacyModes == true) {
+						errVal = change_resolution(16, VGA_640x480_60Hz);
+					} else {
+						errVal = change_resolution(64, VGA_640x240_60Hz);
+					}
+				}
 				break;
 			case 4:
 				errVal = change_resolution(16, VGA_640x240_60Hz);
@@ -1306,6 +1327,14 @@ void vdu_sys_video() {
 			int b = readByte_t();		// Set logical coord mode
 			if(b >= 0) {
 				logicalCoords = b;	
+			}
+		}	break;
+		case VDP_LEGACYMODES: {			// VDU 23, 0, &C1, n
+			int b = readByte_t();		// Switch legacy modes on or off
+			if(b == 0) {
+				legacyModes = false;
+			} else {
+				legacyModes = true;
 			}
 		}	break;
 		case VDP_TERMINALMODE: {		// VDU 23, 0, &FF
