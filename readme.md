@@ -57,6 +57,8 @@ The 320x200 in 64 colours at 75Hz is the current VDP 1.03 Mode 2. This is report
 
 The 640x512 resolution was requested as it would be a scaled down mode that should be suitable for SVGA monitors capable of 1280x1024. I cannot get this to display correctly on my monitor, but YMMV.
 
+The 960x540 resolution was added as it a (quarter) scaled down 1920x1080 mode. 
+
 | Mode | Details | FabGL Mode | Notes |
 |---|---|---|---|
 | 19 | 512x384 in 16 colours at 60Hz | VGA_512x384_60Hz | VDP 1.03 Mode 1 |
@@ -64,7 +66,28 @@ The 640x512 resolution was requested as it would be a scaled down mode that shou
 | 21 | 512x384 in 2 colours at 60Hz | VGA_512x384_60Hz |
 | 22 | 320x200 in 64 colours at 75Hz | VGA_320x200_75Hz |  VDP 1.03 Mode 2 |
 | 23 | 640x512 in 16 colours at 60Hz | QSVGA_640x512_60Hz | 
+| 24 | 800x600 in 4 colours at 56Hz | SVGA_800x600_56Hz |
+| 25 | 800x600 in 2 colours at 56Hz | SVGA_800x600_56Hz |
+| 26 | 960x540 in 4 colours at 60Hz | SVGA_960x540_60Hz |
+| 27 | 960x540 in 2 colours at 60Hz | SVGA_960x540_60Hz |
 
+## Double Buffered Modes
+
+The following modes implement double buffering. They are the non-buffered modes + 128. Note, selecting these modes will cause all writes to go to the back buffer. In order to display these writes, the appropriate VDU command must be called to swap the buffers (see below).
+
+| Mode | Details | FabGL Mode | Notes |
+|---|---|---|---|
+| 136 | 320x240 in 64 colours at 60Hz | QVGA_320x240_60Hz | Double buffered Mode 8 |
+| 137 | 320x240 in 16 colours at 60Hz | QVGA_320x240_60Hz | Double buffered Mode 9 |
+| 140 | 320x200 in 64 colours at 70Hz | VGA_320x200_70Hz | Double buffered Mode 12 |
+
+# Double Buffer Support
+
+To swap the display buffers where modes > 128, use the following VDU command:
+
+```
+VDU 23,0,195
+```
 
 # Legacy Modes Support
 
