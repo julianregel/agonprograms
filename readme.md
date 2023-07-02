@@ -77,9 +77,20 @@ The following modes implement double buffering. They are the non-buffered modes 
 
 | Mode | Details | FabGL Mode | Notes |
 |---|---|---|---|
+| 129 | 640x480 in 4 colours at 60Hz | VGA_640x480_60Hz | Double buffered Mode 1 |
+| 130 | 640x480 in 2 colours at 60Hz | VGA_640x480_60Hz | Double buffered Mode 2 |
+| 132 | 640x240 in 16 colours at 60Hz | VGA_640x240_60Hz | Double buffered Mode 4 |
+| 133 | 640x240 in 4 colours at 60Hz | VGA_640x240_60Hz | Double buffered Mode 5 |
+| 134 | 640x240 in 2 colours at 60Hz | VGA_640x240_60Hz | Double buffered Mode 6 |
+| 135 | 320x200 in 16 colours at 70Hz | VGA_320x200_70Hz | Double buffered Mode 7 |
 | 136 | 320x240 in 64 colours at 60Hz | QVGA_320x240_60Hz | Double buffered Mode 8 |
 | 137 | 320x240 in 16 colours at 60Hz | QVGA_320x240_60Hz | Double buffered Mode 9 |
+| 138 | 320x240 in 4 colours at 60Hz | QVGA_320x240_60Hz | Double buffered Mode 10 |
+| 139 | 320x240 in 2 colours at 60Hz | QVGA_320x240_60Hz | Double buffered Mode 11 |
 | 140 | 320x200 in 64 colours at 70Hz | VGA_320x200_70Hz | Double buffered Mode 12 |
+| 141 | 320x200 in 16 colours at 70Hz | VGA_320x200_70Hz | Double buffered Mode 13 |
+| 142 | 320x200 in 4 colours at 70Hz | VGA_320x200_70Hz | Double buffered Mode 14 |
+| 143 | 320x200 in 2 colours at 70Hz | VGA_320x200_70Hz | Double buffered Mode 15 |
 
 # Double Buffer Support
 
