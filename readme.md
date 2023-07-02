@@ -24,7 +24,7 @@ I have been experimenting with the VDP code and have created a build that incorp
 | 4 | 640x240 in 16 colours at 60Hz | VGA_640x240_60Hz |
 | 5 | 640x240 in 4 colours at 60Hz | VGA_640x240_60Hz |
 | 6 | 640x240 in 2 colours at 60Hz | VGA_640x240_60Hz |
-| 7 | Reserved for Teletext mode currently under development | | 
+| 7 | Invalid Mode | N/A | Reserved for Teletext Mode |
 | 8 | 320x240 in 64 colours at 60Hz | QVGA_320x240_60Hz | VGA "Mode X" |
 | 9 | 320x240 in 16 colours at 60Hz | QVGA_320x240_60Hz |
 | 10 | 320x240 in 4 colours at 60Hz | QVGA_320x240_60Hz |
@@ -86,7 +86,7 @@ There is insufficient memory to support Modes 128 (640x480 in 16 colours) and 13
 | 132 | 640x240 in 16 colours at 60Hz | VGA_640x240_60Hz | Double buffered Mode 4 |
 | 133 | 640x240 in 4 colours at 60Hz | VGA_640x240_60Hz | Double buffered Mode 5 |
 | 134 | 640x240 in 2 colours at 60Hz | VGA_640x240_60Hz | Double buffered Mode 6 |
-| 135 | 320x200 in 16 colours at 70Hz | VGA_320x200_70Hz | Double buffered Mode 7 |
+| 135 | Invalid Mode | N/A | Reserved for Teletext Mode |
 | 136 | 320x240 in 64 colours at 60Hz | QVGA_320x240_60Hz | Double buffered Mode 8 |
 | 137 | 320x240 in 16 colours at 60Hz | QVGA_320x240_60Hz | Double buffered Mode 9 |
 | 138 | 320x240 in 4 colours at 60Hz | QVGA_320x240_60Hz | Double buffered Mode 10 |
