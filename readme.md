@@ -15,9 +15,3 @@ This short BASIC program will work through the list of new modes and display all
 # DBMODETEST
 
 This short BASIC program prompts for a mode number, and if provided with a double-buffered mode, will display a line of text as written to the first buffer. On pressing a key, it will display a different line of text written to the second buffer. Press "Q" to quit.
-
-<<<<<<< HEAD
-If run against a screen mode without double-buffering, both lines of text will appear at the same time.
-=======
-If run against a screen mode without double-buffering, both lines of text will appear at the same time.
->>>>>>> 1137a7659610b2083dd8f87ffffd66dac265ce03
