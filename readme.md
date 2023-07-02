@@ -75,6 +75,8 @@ The 960x540 resolution was added as it a (quarter) scaled down 1920x1080 mode.
 
 The following modes implement double buffering. They are the non-buffered modes + 128. Note, selecting these modes will cause all writes to go to the back buffer. In order to display these writes, the appropriate VDU command must be called to swap the buffers (see below).
 
+There is insufficient memory to support Modes 128 (640x480 in 16 colours) and 131 (640x240 in 64 colours).
+
 | Mode | Details | FabGL Mode | Notes |
 |---|---|---|---|
 | 129 | 640x480 in 4 colours at 60Hz | VGA_640x480_60Hz | Double buffered Mode 1 |
