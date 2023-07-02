@@ -79,8 +79,10 @@ There is insufficient memory to support Modes 128 (640x480 in 16 colours) and 13
 
 | Mode | Details | FabGL Mode | Notes |
 |---|---|---|---|
+| 128 | Invalid Mode | N/A | Insufficient Memory |
 | 129 | 640x480 in 4 colours at 60Hz | VGA_640x480_60Hz | Double buffered Mode 1 |
 | 130 | 640x480 in 2 colours at 60Hz | VGA_640x480_60Hz | Double buffered Mode 2 |
+| 131 | Invalid Mode | N/A | Insufficient Memory |
 | 132 | 640x240 in 16 colours at 60Hz | VGA_640x240_60Hz | Double buffered Mode 4 |
 | 133 | 640x240 in 4 colours at 60Hz | VGA_640x240_60Hz | Double buffered Mode 5 |
 | 134 | 640x240 in 2 colours at 60Hz | VGA_640x240_60Hz | Double buffered Mode 6 |
